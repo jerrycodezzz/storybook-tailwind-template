@@ -1,11 +1,19 @@
 {
-  "name": "frontend-template",
+  "name": "@jerrycodezzz/ui-kit",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "main": "dist/index.js",
   "type": "module",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsup src/index.ts --format esm,cjs --dts --out-dir dist",
+    "build:storybook": "storybook build",
+    "publish:npm": "npm publish --access public",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -41,6 +49,7 @@
     "prettier": "^3.6.2",
     "storybook": "^9.0.18",
     "tailwindcss": "^4.1.11",
+    "tsup": "^8.5.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"
